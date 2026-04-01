@@ -60,7 +60,6 @@ while true; do
         # Avança
         head_pos[$c]=$(( h + 1 ))
 
-        # Reinicia: sem loop — apenas reseta o ponteiro e deixa o
         # apagamento natural (célula por célula) limpar o que sobrou
         if (( head_pos[c] > LINES + tl )); then
             trail_len[$c]=$(( RANDOM % 10 + 6 ))
