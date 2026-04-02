@@ -1,15 +1,14 @@
 # Scripts
-
-> Scripts de terminal forjados no Arch Linux — efeitos visuais, utilitários de sistema
-> e ferramentas de automação construídas para qualquer ambiente gráfico. 
+> Terminal scripts forged on Arch Linux — visual effects, system utilities
+> and automation tools built for any graphical environment.
 
 ---
 
 ## scripts
 
-| script | descrição |
-|--------|-----------|
-| [`matrix_rain.sh`](#matrix_rainsh) | cascata binária estilo cmatrix — 0s e 1s a cair do topo ao fundo |
+| script | description |
+|--------|-------------|
+| [`matrix_rain.sh`](#matrix_rainsh) | cmatrix-style binary cascade — 0s and 1s falling top to bottom |
 
 ---
 
@@ -17,35 +16,40 @@
 
 ![matrix_rain preview](preview.png)
 
-Implementação em Bash puro de um efeito de chuva matricial. Sem dependências, sem binários externos — apenas sequências ANSI escritas directamente no stdout para uma renderização suave e consistente.
+Pure Bash implementation of a matrix rain effect. No dependencies, no external binaries — just ANSI escape sequences written directly to stdout for smooth, consistent rendering.
 
-**Funcionalidades**
+**Features**
 
-- Cascata real do topo ao fundo — cada coluna começa na linha 0 e cai até ao fim
-- Gradiente de brilho: `branco brilhante → branco normal → branco escuro`
-- Apagamento cirúrgico célula a célula — sem spikes de frame, sem lag no reinício de cada coluna.
-- Comprimento de rastro e delay por coluna aleatórios para dessincronização natural
-- Zero subprocessos por frame — toda a renderização via strings ANSI directas
-- Saída limpa: restaura o estado do terminal no `Ctrl+C`
+- Real top-to-bottom cascade — every column starts at row 0 and falls to the bottom
+- Brightness gradient: `bold white → normal white → dim white`
+- Surgical single-cell erase — no frame spikes, no lag on column reset
+- Randomized trail length and column delay for natural desync
+- Zero subprocesses per frame — all rendering via direct ANSI strings
+- Clean exit: restores terminal state on `Ctrl+C`
 
-**Utilização**
-
+**Usage**
 ```bash
 chmod +x matrix_rain.sh
 ./matrix_rain.sh
 ```
 
-**Sair:** `Ctrl+C` — o terminal é totalmente restaurado.
+**Run as a command**
+```bash
+echo "alias matrix='bash ~/Scripts/matrix_rain.sh'" >> ~/.bashrc
+source ~/.bashrc
+```
 
-**Requisitos:** `bash 4+`, terminal com suporte ANSI (Kitty, Alacritty, Foot, etc.)
+**Exit:** `Ctrl+C` — terminal is fully restored.
+
+**Requirements:** `bash 4+`, ANSI-capable terminal (Kitty, Alacritty, Foot, etc.)
 
 ---
 
-## Ambiente de Desenvolvimento 
+## Development Environment
 
 | | |
 |---|---|
-| SO | Arch Linux |
+| OS | Arch Linux |
 | WM | Hyprland |
 | Terminal | Kitty |
 | Shell | Bash |
