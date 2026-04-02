@@ -23,7 +23,7 @@ Implementação em Bash puro de um efeito de chuva matricial. Sem dependências,
 
 - Cascata real do topo ao fundo — cada coluna começa na linha 0 e cai até ao fim
 - Gradiente de brilho: `branco brilhante → branco normal → branco escuro`
-- Apagamento cirúrgico célula a célula — sem spikes de frame, sem lag no reinício de coluna
+- Apagamento cirúrgico célula a célula — sem spikes de frame, sem lag no reinício de cada coluna.
 - Comprimento de rastro e delay por coluna aleatórios para dessincronização natural
 - Zero subprocessos por frame — toda a renderização via strings ANSI directas
 - Saída limpa: restaura o estado do terminal no `Ctrl+C`
@@ -41,7 +41,7 @@ chmod +x matrix_rain.sh
 
 ---
 
-## ambiente
+## Ambiente de Desenvolvimento 
 
 | | |
 |---|---|
