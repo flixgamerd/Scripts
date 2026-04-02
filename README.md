@@ -1,7 +1,7 @@
 # Scripts
 
 > Scripts de terminal forjados no Arch Linux — efeitos visuais, utilitários de sistema
-> e ferramentas de automação construídas para um ambiente Hyprland.
+> e ferramentas de automação construídas para qualquer ambiente gráfico. 
 
 ---
 
@@ -51,7 +51,3 @@ chmod +x matrix_rain.sh
 | Shell | Bash |
 
 ---
-
-## licença
-
-MIT
