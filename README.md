@@ -1,7 +1,9 @@
 # Scripts
 > Terminal scripts forged on Arch Linux — visual effects, system utilities
 > and automation tools built for any graphical environment.
-
+> 
+> Scripts are actively developed. Future versions may include ports for
+> PowerShell (Windows), Zsh and Fish — or users may adapt them to their shell of choice.
 ---
 
 ## scripts
