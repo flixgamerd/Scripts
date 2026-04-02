@@ -29,14 +29,15 @@ Pure Bash implementation of a matrix rain effect. No dependencies, no external b
 
 **Usage**
 ```bash
-chmod +x matrix_rain.sh
-./matrix_rain.sh
+chmod +x matrix_bin.sh
+./matrix_bin.sh
 ```
 
-**Run as a command**
+**Quick launch**
 ```bash
-echo "alias matrix='bash ~/Scripts/matrix_rain.sh'" >> ~/.bashrc
+echo "alias matrix='bash ~/Scripts/matrix_bin.sh'" >> ~/.bashrc
 source ~/.bashrc
+matrix
 ```
 
 **Exit:** `Ctrl+C` — terminal is fully restored.
