@@ -1,4 +1,22 @@
-oi vc is very Gay boy
-vc nao sabe progarmar em python
-you is Gay?
+O Último Sinal
 
+A estação de monitoramento ficava no topo da montanha, isolada do mundo por quilômetros de floresta densa e silêncio.
+Rins trabalhava sozinho há três anos. Sua única companhia era o barulho dos servidores e o piscar constante dos LEDs verdes no painel.
+
+Naquela noite, um dos sensores enviou um sinal diferente.
+Não era uma anomalia de temperatura. Não era variação de pressão. Era um padrão — repetido, preciso, deliberado.
+
+Rins se inclinou para a tela. Os dados não mentiam.
+Alguém, ou algo, estava do outro lado da linha tentando se comunicar.
+
+Ele digitou uma resposta no terminal. Cursor piscando. Silêncio.
+
+Então a resposta chegou:
+
+    RECEIVIED. WAITING. DO NOT SHUT DOWN.
+
+Rins olhou pela janela. A floresta estava escura.
+Os servidores continuavam zumbindo. Os LEDs continuavam verdes.
+
+Ele não desligou o sistema naquela noite.
+Nem nas noites seguintes.
