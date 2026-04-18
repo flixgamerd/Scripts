@@ -103,3 +103,98 @@ python encrypt.py decrypt ./docs --recursive
 | nonce | 12 bytes, random per file |
 
 **Requirements:** `python 3.8+`, `python-cryptography`
+
+---
+## zsh utilities
+
+Native Zsh scripts for system automation and desktop workflow. No bashisms,
+no external dependencies beyond the tools they wrap.
+
+| script | description |
+|--------|-------------|
+| [`pgcreate`](#pgcreate) | PostgreSQL database provisioner — creates databases, roles and applies schemas |
+| [`setwall`](#setwall) | Wallpaper switcher via swww — resolves names without extension, supports fzf |
+
+---
+## pgcreate
+
+PostgreSQL database provisioner. Creates a database and its dedicated role in a
+single command, hardens public schema permissions and optionally applies an SQL
+schema file. Supports dropping existing databases with active connection handling.
+
+**Usage**
+```zsh
+chmod +x pgcreate
+./pgcreate --db <name> [options]
+```
+
+**Options**
+| flag | description |
+|------|-------------|
+| `--db <name>` | database name (required) |
+| `--user <name>` | role name — defaults to the database name |
+| `--schema <file.sql>` | SQL file to execute after creation |
+| `--no-user` | skip role creation, database owned by superuser |
+| `--superuser <role>` | superuser used to run commands (default: `postgres`) |
+| `--host / --port` | connection target (defaults: `localhost` / `5432`) |
+| `--drop` | drop the database — terminates active connections first |
+| `--drop-role` | drop the associated role (use with `--drop`) |
+| `--dry-run` | print SQL commands without executing |
+
+**Examples**
+```zsh
+# minimal — creates database + role with the same name
+pgcreate --db myapp
+
+# with a dedicated role
+pgcreate --db myapp --user myuser
+
+# apply schema on creation
+pgcreate --db myapp --schema ./schema.sql
+
+# drop database and its role
+pgcreate --drop --drop-role --db myapp
+
+# inspect without executing
+pgcreate --db myapp --dry-run
+```
+
+**Behavior**
+- checks for an existing database before creating — aborts with a clear message if found
+- creates the role with `LOGIN` (no password — compatible with `peer`/`trust` auth)
+- revokes default `PUBLIC` access on both the database and `public` schema
+- prints a ready-to-use connection string and `DATABASE_URL` on completion
+
+**Requirements:** `zsh 5+`, `psql` (PostgreSQL client)
+
+---
+## setwall
+
+Wallpaper switcher built around `swww`. Resolves wallpaper names without requiring
+the file extension — partial and case-insensitive matching included. Falls back to
+an interactive `fzf` list when invoked with no arguments.
+
+**Usage**
+```zsh
+chmod +x setwall
+./setwall <name>
+```
+
+**Examples**
+```zsh
+setwall Wave          # matches Wave.jpg
+setwall wave          # case-insensitive
+setwall wa            # partial match — applies if result is unambiguous
+setwall               # interactive fzf picker (fallback: plain list)
+```
+
+**Behavior**
+- resolution order: exact match → name without extension → partial match
+- if a partial query matches multiple files, lists candidates and aborts
+- wallpaper directory defaults to `~/dotfiles/wallpapers` — override via env:
+
+```zsh
+export WALLPAPER_DIR="$HOME/path/to/wallpapers"
+```
+
+**Requirements:** `zsh 5+`, `swww`, `fzf` (optional — for interactive picker)
