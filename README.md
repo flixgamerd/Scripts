@@ -170,7 +170,7 @@ pgcreate --db myapp --dry-run
 ---
 ## setwall
 
-Wallpaper switcher built around `swww`. Resolves wallpaper names without requiring
+Wallpaper switcher built around `awww(swww updated)`. Resolves wallpaper names without requiring
 the file extension — partial and case-insensitive matching included. Falls back to
 an interactive `fzf` list when invoked with no arguments.
 
@@ -197,4 +197,4 @@ setwall               # interactive fzf picker (fallback: plain list)
 export WALLPAPER_DIR="$HOME/path/to/wallpapers"
 ```
 
-**Requirements:** `zsh 5+`, `swww`, `fzf` (optional — for interactive picker)
+**Requirements:** `zsh 5+`, `awww(swww updated)`, `fzf` (optional — for interactive picker)
