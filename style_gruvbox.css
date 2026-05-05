@@ -1,0 +1,156 @@
+* {
+  font-family: JetBrainsMonoNerdFontPropo, Noto Sans CJK JP;
+  font-size: 18px;
+  border: none;
+}
+
+/* ── Paleta Gruvbox Dark ── */
+@define-color gruvbox-bg       rgba(40, 40, 40, 0.92);      /* #282828 */
+@define-color gruvbox-bg-soft  rgba(50, 48, 47, 0.92);      /* #32302f */
+@define-color gruvbox-fg       #ebdbb2;                      /* foreground cream */
+@define-color gruvbox-yellow   #fabd2f;                      /* bright yellow */
+@define-color gruvbox-orange   #fe8019;                      /* bright orange */
+@define-color gruvbox-red      #fb4934;                      /* bright red */
+@define-color gruvbox-green    #b8bb26;                      /* bright green */
+@define-color gruvbox-aqua     #8ec07c;                      /* bright aqua */
+@define-color gruvbox-blue     #83a598;                      /* bright blue */
+@define-color gruvbox-purple   #d3869b;                      /* bright purple */
+@define-color gruvbox-gray     #928374;                      /* gray */
+@define-color gruvbox-border   rgba(168, 153, 132, 0.35);   /* #a89984 translúcido */
+@define-color gruvbox-dim      #665c54;                      /* bg2 */
+
+/* ── Waybar: retângulo único flutuante ── */
+window#waybar {
+  background: transparent;
+  color: @gruvbox-fg;
+}
+
+window#waybar > box {
+  background-color: @gruvbox-bg;
+  border: 1.2px solid @gruvbox-border;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0 4px;
+}
+
+/* ── Módulos: sem fundo próprio ── */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: transparent;
+  border: none;
+  padding: 2px 8px;
+  margin: 0;
+}
+
+/* ── Botões gerais ── */
+button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  margin: 2px 8px;
+  padding: 2px 10px;
+  transition: color 0.15s ease-out,
+              text-shadow 0.15s ease-out;
+}
+
+/* ── Workspaces ── */
+#workspaces {
+  background: transparent;
+}
+
+#workspaces button {
+  padding: 2px 10px;
+  margin: 2px 3px;
+  color: @gruvbox-gray;
+  background: none;
+}
+
+#workspaces button.active {
+  color: @gruvbox-yellow;
+  font-weight: bold;
+  text-shadow: 0 0 4px @gruvbox-orange;
+  box-shadow: inset 0 -2px @gruvbox-yellow;
+  animation: gruvbox-pulse 0.18s ease-out;
+}
+
+#workspaces button.urgent {
+  color: @gruvbox-red;
+  text-shadow: 0 0 6px @gruvbox-orange;
+}
+
+@keyframes gruvbox-pulse {
+  0%   { color: @gruvbox-yellow; }
+  50%  { color: @gruvbox-orange; }
+  100% { color: @gruvbox-yellow; }
+}
+
+/* ── Clock ── */
+#clock {
+  padding: 2px 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: @gruvbox-fg;
+}
+
+/* ── Módulos da direita ── */
+#network,
+#pulseaudio,
+#tray,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#custom-power,
+#mpris,
+#custom-gpu,
+#custom-cpu-temp,
+#custom-notifications {
+  background: transparent;
+  padding: 2px 10px;
+  margin-left: 10px;
+  color: @gruvbox-fg;
+}
+
+/* ── Estados específicos ── */
+#network.disconnected {
+  color: @gruvbox-dim;
+  padding: 2px 10px;
+}
+
+#cpu {
+  color: @gruvbox-blue;
+}
+
+#memory {
+  color: @gruvbox-purple;
+}
+
+#temperature {
+  color: @gruvbox-orange;
+}
+
+#temperature.critical {
+  color: @gruvbox-red;
+  font-weight: bold;
+}
+
+#disk {
+  color: @gruvbox-aqua;
+}
+
+#pulseaudio {
+  color: @gruvbox-green;
+}
+
+#mpris {
+  color: @gruvbox-purple;
+}
+
+/* ── Hover effects ── */
+#custom-power:hover,
+#mpris:hover {
+  color: @gruvbox-yellow;
+  text-shadow: 0 0 3px @gruvbox-orange;
+  padding: 2px 10px;
+}

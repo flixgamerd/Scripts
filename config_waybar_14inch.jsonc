@@ -1,0 +1,122 @@
+// -*- mode: jsonc -*-
+// Configuração Waybar otimizada para portátil 14" - por J.A.R.V.I.S.
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "width": 1280,
+    "margin-top": 5,
+    "spacing": 0,
+    "modules-left": [
+         "custom/power",
+         "niri/workspaces",
+         "tray",
+         "mpris"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "disk",
+        "temperature"
+    ],
+    
+    "niri/workspaces": {
+        "format": "{icon}",
+        "icon-size": 8,
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "empty": "二"
+        }
+    },
+        
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    },
+    
+    "clock": { 
+        "timezone": "Africa/Luanda",
+        "format": " {:%H:%M}",
+        "format-alt": "{:%A, %d %b %Y — %H:%M:%S}",
+        "interval": 10
+    },
+    
+    "mpris": {
+        "player": "spotify",
+        "format": "{status_icon} {title} - {artist}",
+        "format-paused": "{player_icon} {status_icon}",
+        "format-stopped": "",
+        "player-icons": {
+            "default": "▶",
+            "spotify": ""
+        },
+        "status-icons": {
+            "paused": "⏸",
+            "playing": "▶",
+            "stopped": "■"
+        },
+        "ignored-players": ["zen-browser"],
+        "max-length": 20,
+        "interval": 1,
+        "on-click": "playerctl -p spotify play-pause",
+        "on-click-right": "playerctl -p spotify next",
+        "on-scroll-up": "playerctl -p spotify previous",
+        "on-scroll-down": "playerctl -p spotify next",
+        "tooltip-format": "{title} - {artist}\nÁlbum: {album}"
+    },
+    
+    "cpu": {
+        "format": " {usage}%",
+        "on-click": "kitty --class btop_float -e btop"
+    },
+    
+    "memory": {
+        "format": " {}%",
+        "on-click": "kitty --class btop_float -e btop"
+    },
+    
+    "temperature": {
+        "critical-threshold": 80,
+        "format-icons": [""],
+        "format": "{icon} {temperatureC}°C"
+    },
+    
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format": "{essid} - {signalStrength}%"
+    },
+    
+    "disk": {
+        "interval": 30,
+        "path": "/",
+        "format": "󱛟 {free}",
+        "format-alt": "󱛟 {percentage_free}%",
+        "on-click": "kitty --class btop_float -e df -h",
+        "tooltip-format": "{used} usados de {total} ({percentage_used}% cheio)"
+    },
+    
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-icons": ["", "", ""],
+        "format-bluetooth": "",
+        "format-bluetooth-muted": " {icon}",
+        "on-click": "pavucontrol"
+    },
+    
+    "custom/power": {
+        "format": " 󰣇 ",
+        "tooltip": false
+    }
+}
